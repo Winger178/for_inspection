@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% block head %}<h2 xmlns="http://www.w3.org/1999/html">&#123;update_the_profile&#125;</h2>{% endblock %}
+{% block body %}
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{ msg }}</div>
+{% endfor %}
+<div class="container">
+    <h1>Обновление профиля</h1>
+    <form method="post">
+        <textarea class="form-control" name="login" id="login" placeholder="Н">{{ user_upd.login }}</textarea><br>
+        <textarea class="form-control" name="email" id="email" placeholder="Текст">{{ user_upd.email }}</textarea><br>
+        <input list="all" type="text" class="form-control" name="color" id="color" placeholder="Выберите цвет никнейма"><br>
+        <datalist id="all">
+
+            <option disabled> Не выбран </option>
+            <option value="#000000">Black</option>
+            <option value="#FF0000">Red</option>
+            <option value="#FF3300">Orange</option>
+            <option value="#FFFF00">Yellow</option>
+            <option value="#00FF00">Green</option>
+            <option value="#00CCFF">Azure</option>
+            <option value="#0000FF">Blue</option>
+            <option value="#9900CC">Purple</option>
+            <option value="#FF0099">Pink</option>
+
+        </datalist>
+        <button type="submit" class="w-100 btn btn-lg btn-primary">Change profile</button>
+    </form>
+</div>
+{% endblock %}

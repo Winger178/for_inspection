@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+
+{% block body %}
+<h1 scope="row" class="text-start">{{ data2.title }}</h1>
+<ul class="list-unstyled text-small">
+    <li class="mb-1"><a class="link-secondary text-decoration-none">{{ data2.text }}</a></li>
+</ul>
+{{ data2.publishing_date }}
+{{ data2.user_id }}
+
+{% endblock %}

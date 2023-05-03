@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% block head %}<h2>&#123;register&#125;</h2>{% endblock %}
+{% block body%}
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{ msg }}</div>
+{% endfor %}
+<form method="post" style="text-align: center">
+    <p><h2 style="font-family: Comic Sans MS, cursive, sans-serif; ">Регистрация</h2>
+  <p><label style="font-family: Comic Sans MS, cursive, sans-serif; "></label> <input placeholder="Email:" style='border-color: #0d6efd; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px;' type="email" name="email" value="" required />
+  <p><label style="font-family: Comic Sans MS, cursive, sans-serif;"></label> <input placeholder="Новое имя:" style='border-color: #0d6efd; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px;' type="username" name="username"/>
+  <p><label style="font-family: Comic Sans MS, cursive, sans-serif;"></label> <input placeholder="Новый пароль: " style="border-color: #0d6efd; border-color: #0d6efd; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px;" type="password" name="psw" value="" required />
+  <p><label style="font-family: Comic Sans MS, cursive, sans-serif;"></label> <input placeholder="Повторите пароль:" style='border-color: #0d6efd; border-color: #0d6efd; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px;' type="password" name="psw2" value="" required />
+  <p><input type="submit" class="btn btn-primary" value="Создать аккаунт" />
+  <a href="login">или войти?</a>
+  </p>
+    <small class="d-block mb-3 text-muted">*при нажатии на кнопку "Создать аккуаунт" вы берете ответственность за свои действия при ознакомлении всех данных на сайте и за их использование</small>
+    <small class="d-block mb-3 text-muted">** после создания аккаунта на указанную почту будет выслан ваш пароль </small>
+</form>
+
+  {% endblock %}

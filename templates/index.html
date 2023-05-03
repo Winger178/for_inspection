@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+{% block head %}<h2>&#123;index&#125;</h2>{% endblock %}
+{% block body%}
+<h2>Пока что нововго ничего нет, поэтому здесь будет список зарегистрированных пользователей:</h2>
+<div class="container" style="text-align: center;">
+        {% for el in datas %}
+
+    <a href="/user/{{ el.login }}" class="card-title pricing-card-title">{{ el.login }}</a>
+
+
+        {% endfor %}
+</div>
+{% endblock %}

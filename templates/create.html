@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+{% block head %}<h2>&#123;create_the_post&#125;</h2>{% endblock %}
+{% block body%}
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{ msg }}</div>
+{% endfor %}
+<div class="container">
+    <h1>Добавление поста</h1>
+    <form method="post">
+        <input type="text" class="form-control" name="title" id="title" placeholder="Название"><br>
+        <textarea class="form-control" name="text" id="text" placeholder="Текст"></textarea><br>
+        <input list="crypto" type="text" class="form-control" name="tags" id="tags" placeholder="Тематика(с маленькой буквы)"><br>
+        <datalist id="crypto">
+            <option value="BTS"></option>
+            <option value="ETH"></option>
+            <option value="ADA"></option>
+            <option value="BNB"></option>
+            <option value="USDT"></option>
+            <option value="XRP"></option>
+            <option value="DOGE"></option>
+            <option value="SOL"></option>
+            <option value="USDC"></option>
+            <option value="DOT"></option>
+            <option value="UNI"></option>
+            <option value="LUNA"></option>
+            <option value="BUSD"></option>
+            <option value="BCH"></option>
+            <option value="LTC"></option>
+            <option value="LINK"></option>
+        </datalist>
+        <h6 style="mb-1 link-secondary text-decoration-none">*вы также можете указать любую другую криптовалюту</h6>
+        <button type="submit" class="w-100 btn btn-lg btn-primary">Добавить статью</button>
+    </form>
+</div>
+{% endblock %}

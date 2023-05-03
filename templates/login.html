@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block head %}<h2>&#123;login&#125;</h2>{% endblock %}
+{% block body%}
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{ msg }}</div>
+{% endfor %}
+<form action="/login" method="post" style="text-align: center">
+  <p><h2 style="font-family: Comic Sans MS, cursive, sans-serif; ">Войти</h2>
+  <p>{{ message }}</p>
+  <p><label style="font-family: Comic Sans MS, cursive, sans-serif;"></label> <input placeholder="Имя:" style='border-color: #0d6efd; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px;' type="text" name="username" value="" required />
+  <p><label style="font-family: Comic Sans MS, cursive, sans-serif;"></label> <input placeholder="Пароль: " style='border-color: #0d6efd; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px;' type="password" name="psw" value="" required />
+  <p><input type="submit" class="btn btn-primary" value="Войти" />
+  <a href="register" >или создать аккаунт?</a>
+  </p>
+  </form>
+{% endblock %}

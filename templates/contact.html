@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block head %}<h2>&#123;contact&#125;</h2>{% endblock %}
+{% block body%}
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{ msg }}</div>
+{% endfor %}
+<form action="/contact" method="post" class="form-contact">
+    <h1 scope="row" class="text-start">Заявка</h1>
+<p><label>Имя:</label> <input type="text" name="username" value="" required />
+<p><label>Email:</label> <input type="text" name="email" value="" required />
+    <textarea class="form-control" name="text" id="text" placeholder="Текст" ></textarea>
+    <li class="mb-1"><a class="link-secondary text-decoration-none">Правила заполнения(иначе не будет ответа): </a></li>
+    <li class="mb-1"><a class="link-secondary text-decoration-none">все поля заполнены</a></li>
+    <li class="mb-1"><a class="link-secondary text-decoration-none">запрещено оскорбление</a></li>
+    <p><input type="submit" class="btn btn-primary" value="Отправить"></p>
+    </form>
+    {% endblock %}

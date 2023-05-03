@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% block head %}<h2>&#123;user&#125;</h2>{% endblock %}
+
+{% block body %}
+<h1 scope="row" class="text-start">{{ data6.login }}</h1>
+{{ data6.email }}
+
+
+
+<div class="container">
+
+        {% for el in data6.posts.all() %}
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h2 class="my-0 fw-normal">{{ el.title }}</h2>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title pricing-card-title"><small class="text-muted fw-light" style="font-family: Comic Sans MS, cursive, sans-serif;">{{ el.text[:200] + '...'}}</small></h4>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Создано {{ el.publishing_date }} {{ el.login }}</li>
+
+            </ul>
+            <a href="/read/{{ el.id }}" class="btn btn-primary">Взглянуть</a>
+          </div>
+        </div>
+        {% endfor %}
+</div>
+
+{% endblock %}
